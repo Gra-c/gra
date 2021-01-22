@@ -1,1 +1,2 @@
 # gra
+no i fajnie
