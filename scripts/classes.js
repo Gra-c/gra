@@ -1,33 +1,40 @@
-function imgLoader()
-{
-    this.enemy = loadImage("images/t1.jpg");
-}
-function enemy1(location)
+function Entity(location)
 {
     this.placement = location;
-    this.velocity = createVector(0.1,0.05)
-    this.draw = function()
+    this.velocity = createVector(0,0)
+}
+Entity.prototype.draw = function()
+{
+    image(this.image,this.placement.x,this.placement.y)
+}
+Entity.prototype.move = function()
+{
+    this.placement.add(this.velocity);
+}
+Entity.prototype.addForce = function(force)
+{
+    this.velocity.add(force);
+}
+Entity.prototype.teleport = function(vector)
+{
+    this.placement.add(vector);
+}
+
+function Player(location)
+{
+    Entity.call(this,location)
+}
+Player.prototype = Object.create(Entity.prototype)
+Player.prototype.constructor = Entity();
+Player.prototype.move = function()
+{
+    switch(keyCode)
     {
-        image(textures.enemy,this.placement.x,this.placement.y)
+        case LEFT_ARROW: this.teleport(createVector(1,0))
+        case RIGHT_ARROW: this.teleport(createVector(-1,0))
     }
-    this.move = function()
-    {
-        this.placement.add(this.velocity);
-    }
-    this.addForce = function(force)
-    {
-        this.velocity.add(force);
-    }
-    this.bounce = function(side)
-    {
-        let multi = createVector(1,1);
-        switch(side)
-        {
-            case "up": multi.y = -1;break;
-            case "down": multi.y = -1;break;
-            case "left": multi.x = -1;break;
-            case "right": multi.x = -1;break;
-        }
-        this.velocity.mult(multi)
-    }
+}
+Player.prototype.draw = function()
+{
+    image(textures.Player,this.placement.x,this.placement.y)
 }

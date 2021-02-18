@@ -1,18 +1,21 @@
 let images;
-let zlol
+let ja;
 
 function setup()
 {
     var screen = createCanvas(600,800);
-    zlol = new enemy1(createVector(100,100))
+    ja = new Player(createVector(100,100))
+    Entity.prototype.
+    Player.prototype.speed = createVector()
 }
 function preload()
 {
-    textures= new imgLoader();
+    Entity.prototype.image = loadImage("images/t1.jpg");
+    Player.prototype.image = loadImage("images/enemy.png");
 }
 function draw()
 {
     background(255)
-    zlol.draw();
-    zlol.move();
+    ja.move();
+    ja.draw();
 }
