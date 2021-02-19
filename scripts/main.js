@@ -3,10 +3,9 @@ let ja;
 
 function setup()
 {
-    var screen = createCanvas(600,800);
-    ja = new Player(createVector(100,100))
-    Entity.prototype.
-    Player.prototype.speed = createVector()
+    var screen = createCanvas(400,600);
+    Entity.prototype.velocity = createVector(0,0);
+    ja = new Player(createVector(200,550))
 }
 function preload()
 {

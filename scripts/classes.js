@@ -1,7 +1,6 @@
 function Entity(location)
 {
     this.placement = location;
-    this.velocity = createVector(0,0)
 }
 Entity.prototype.draw = function()
 {
@@ -19,7 +18,6 @@ Entity.prototype.teleport = function(vector)
 {
     this.placement.add(vector);
 }
-
 function Player(location)
 {
     Entity.call(this,location)
@@ -28,13 +26,32 @@ Player.prototype = Object.create(Entity.prototype)
 Player.prototype.constructor = Entity();
 Player.prototype.move = function()
 {
-    switch(keyCode)
+    if (keyIsDown(37)) 
     {
-        case LEFT_ARROW: this.teleport(createVector(1,0))
-        case RIGHT_ARROW: this.teleport(createVector(-1,0))
+        ja.teleport(createVector(-1,0));
+    }
+    
+    if (keyIsDown(39))
+    {
+        ja.teleport(createVector(1,0));
+    }
+
+    if (keyIsDown(32))
+
+    {
+
     }
 }
 Player.prototype.draw = function()
 {
-    image(textures.Player,this.placement.x,this.placement.y)
+    image(this.image,this.placement.x,this.placement.y)
+}
+function Bullet(location)
+{
+    Entity.call(this,location);
+    this.addForce(createVector(0,-3));
+}
+Bullet.prototype.move = function()
+{
+    
 }
