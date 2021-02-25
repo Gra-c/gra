@@ -2,11 +2,6 @@ function Entity(location)
 {
     this.placement = location;
 }
-Entity.prototype.draw = function()
-{
-    image(this.image,this.placement.x,this.placement.y)
-}
-
 Entity.prototype.addForce = function(force)
 {
     this.velocity.add(force);
@@ -44,6 +39,7 @@ function Bullet(location,direction)
     this.velocity = createVector(0,-4);
     else
     this.velocity = createVector(0,4)
+    this.image = pocisk;
 }
 Bullet.prototype = Object.create(Entity.prototype)
 Bullet.prototype.constructor = Entity();
@@ -51,4 +47,30 @@ Bullet.prototype.move = function()
 {
     this.placement.add(this.velocity);
 }
-Enemy
+Bullet.prototype.draw = function()
+{
+    image(this.image,this.placement.x,this.placement.y)
+}
+function Enemy(location)
+{
+    Entity.call(this,location)
+    this.boom = false;
+    this.wybuch = wybuch
+}
+Enemy.prototype = Object.create(Entity.prototype)
+Enemy.prototype.constructor = Entity();
+Enemy.prototype.move = function()
+{
+
+}
+Enemy.prototype.draw = function()
+{
+    if(this.boom)
+    {
+        image(this.boom,this.placement.x,this.placement.y)
+    }
+    else
+    {
+        image(this.image,this.placement.x,this.placement.y)
+    }
+}
