@@ -75,7 +75,7 @@ function draw()
     {
         fill(255)
         textSize(40)
-        text("wynik="+wynik,200,300)
+        text("wynik="+wynik,100,300)
         noLoop();
     }
 }
