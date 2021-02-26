@@ -4,7 +4,6 @@ let shots = new Set()
 let foes = new Set()
 let dlugosc = 0;
 let pocisk;
-let wybuch;
 let wynik = 0;
 let respawnCzas = 80;
 let i = 0;
@@ -25,12 +24,11 @@ function preload()
     Entity.prototype.image = loadImage("images/t1.jpg");
     Player.prototype.image = loadImage("images/enemy.png");
     Enemy.prototype.image = loadImage("images/enemy.png")
-    wybuch = loadImage("images/boom.gif")
-    pocisk = loadImage("images/t1.jpg");
+    pocisk = loadImage("images/pocisk.png");
 }
 function draw()
 {
-    background(255)
+    background(20)
     ja.move();
     ja.draw();
     foes.forEach(function(wrog)
@@ -75,6 +73,7 @@ function draw()
     }
     if(foes.size>30)
     {
+        fill(255)
         textSize(40)
         text("wynik="+wynik,200,300)
         noLoop();

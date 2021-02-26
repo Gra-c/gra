@@ -55,7 +55,6 @@ function Enemy(location)
 {
     Entity.call(this,location)
     this.boom = false;
-    this.wybuch = wybuch
 }
 Enemy.prototype = Object.create(Entity.prototype)
 Enemy.prototype.constructor = Entity();
