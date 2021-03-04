@@ -10,13 +10,45 @@
     <style>
         body {
             text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 10px;
+        }
+        @keyframes przesun
+        {
+            0% { transform:translateX(0); padding-left:110%;}
+            100% { transform:translateX(-100%); padding-left:110%;}
+        }
+        @keyframes przesun2
+        {
+            0% { transform:translateX(-100%); padding-left:110%;}
+            100% { transform:translateX(0%); padding-left:110%;}
+        }
+        .enemy
+        {
+            animation:przesun 10s linear infinite;
+        }
+        #player
+        {
+            animation:przesun2 10s linear infinite;
         }
     </style>
+
     <h1 style="text-decoration: underline;">Twórcy gry:</h1>
     <p>Michał Szelest</p>
     <p>Konrad Ciesielski</p>
-    <p>Michał Wachowski</p>
-    <hr>
-    <h3>Grupa C, Klasa 2ir &copy; Wszelskie prawa zatrzeżone!</h3>
+    <p>Michał Wachowski</p><hr>
+
+    <h3>Grupa C, Klasa 2ir &copy; Wszelskie prawa zastrzeżone!</h3><hr>
+
+    <br><br><br><br><br>
+
+    <img class="enemy" src="images/enemy.png" alt="" width="120px" height="100px">
+    <img class="enemy" src="images/enemy.png" alt="" width="120px" height="100px">
+    <img class="enemy" src="images/enemy.png" alt="" width="120px" height="100px">
+
+    <br><br><br><br>
+
+    <img id="player" src="images/player.png" alt="" width="120px" height="100px">
 </body>
 </html>
