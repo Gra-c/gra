@@ -22,7 +22,7 @@ function setup()
 function preload()
 {
     Entity.prototype.image = loadImage("images/t1.jpg");
-    Player.prototype.image = loadImage("images/enemy.png");
+    Player.prototype.image = loadImage("images/player.png");
     Enemy.prototype.image = loadImage("images/enemy.png")
     pocisk = loadImage("images/pocisk.png");
 }
@@ -60,7 +60,7 @@ function draw()
     },)
     if(keyIsDown(32)&&ja.cooldown<=0)
     {
-        shots.add(new Bullet(createVector(ja.placement.x,ja.placement.y)),"")
+        shots.add(new Bullet(createVector(ja.placement.x + 18,ja.placement.y)),"")
         ja.cooldown = 15
     }
     ja.cooldown--;
